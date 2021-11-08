@@ -1,0 +1,20 @@
+### Get Questions
+
+GET http://127.0.0.1:5000/api/questions
+Content-Type: application/json
+
+### Submit Question
+
+POST http://127.0.0.1:5000/api/questions
+Content-Type: application/json
+
+{
+    "name": "Herald of the Change",
+    "content": "Can everyone hear me"
+}
+
+
+### Delete Question
+
+DELETE  http://127.0.0.1:5000/api/questions/2
+Content-Type: application/json
