@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Express Backend for Questions",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",  
     "start:dev": "nodemon --inspect index.js",  
