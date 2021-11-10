@@ -74,7 +74,6 @@ const render = () => {
         submitQuestion(data);
 
         //reset form's default values
-        submitQuestion(data);
         name.value = ''; //can be modified anywhere after declaration
         content.value = '';
         content.placeholder = 'Ask Away...';
