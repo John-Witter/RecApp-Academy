@@ -14,7 +14,12 @@ const render = () => {
     ];
 
     const App = document.createElement("div");
-    App.innerHTML = "Hello World (Now w/ 100% more JavaScript)";
+    App.classList.add("App");
+
+    const header = document.createElement("header");
+    header.innerText = "RecApp2.0: Frontend + DOM Manipulation";
+
+    App.append(header);
 
     // create functions to handle manipulating data
     // these will be invoked within the QuestionForm (created below)
@@ -51,6 +56,8 @@ const render = () => {
     submit.type = "submit";
     submit.innerText = "Submit";
 
+    QuestionForm.classList.add("module");
+
     QuestionForm.append(h1, name, content, submit);
 
     const Questions = document.createElement("div");
@@ -68,15 +75,15 @@ const render = () => {
         let data = {
             _id: Math.floor(Math.random() * 1000),
             content: content.value.trim(), // value comes from textarea
-            name: name.value.trim()
-        }    
+            name: name.value.trim(),
+        };
 
         submitQuestion(data);
 
         //reset form's default values
-        name.value = ''; //can be modified anywhere after declaration
-        content.value = '';
-        content.placeholder = 'Ask Away...';
+        name.value = ""; //can be modified anywhere after declaration
+        content.value = "";
+        content.placeholder = "Ask Away...";
     });
 
     // create html version of questions
@@ -85,7 +92,7 @@ const render = () => {
         if (!questions.length) return (Questions.innerHTML = "No Questions");
 
         // reset what's displayed as an empty string
-        Questions.innerHTML = '';
+        Questions.innerHTML = "";
 
         // create a question to formatted as html
         // append it to the Question element
@@ -101,8 +108,10 @@ const render = () => {
             const button = document.createElement("button");
             button.innerText = "Delete";
             button.onclick = () => deleteQuestion(question._id);
-
+            
+            formattedQuestion.classList.add("module"); // css
             formattedQuestion.append(h3, span, button);
+            
             Questions.append(formattedQuestion);
         });
     };
