@@ -6,12 +6,13 @@ const app = express();
 
 app.use(express.json());
 
-mongoose.connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-    .then(() => console.log('mongoDB Connected!'))
-    .catch(e => console.log(e))
+mongoose
+    .connect(MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log("mongoDB Connected!"))
+    .catch((e) => console.log(e));
 
 app.get("/firstwordsentviainternet", (req, res) => {
     res.send("lo");

@@ -9,8 +9,8 @@ POST http://127.0.0.1:5000/api/questions
 Content-Type: application/json
 
 {
-    "name": "Herald of the Change",
-    "content": "Can everyone hear me"
+    "name": "Paul Atreides",
+    "content": "Why are my dreams so sandy?"
 }
 
 

@@ -1,5 +1,7 @@
 [placements docs](https://placements-docs.appacademy.io/) code: go_docs_go
 
+```npm run start:dev``` in backend-express
+
 # Monday
 
 * B1: Pre-Survery 1
