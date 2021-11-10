@@ -12,7 +12,7 @@ export const Questions = ({ GLOBAL_STATE, deleteQuestion}) => {
         <div key={i} className="module" >
             <h3>{question.content}</h3>
             <span>- {question.name}</span>
-            <button onClick={() => GLOBAL_STATE.deleteQuestion(question._id)}>Delete</button>
+            <button onClick={() => deleteQuestion(question._id)}>Delete</button>
         </div>).reverse()
     }
 
