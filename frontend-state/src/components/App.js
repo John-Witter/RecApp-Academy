@@ -14,51 +14,49 @@ export const App = () => {
     const [GLOBAL_STATE, setGlobalState] = useState({
         user: {
             name: "Mark",
-            isAdmin: true
+            isAdmin: true,
         },
-        questions: [
-            { _id: 1, name: "Vladimir Harkonnen", content: "Am I the drama?" },
-            {
+        questions: {
+            1: {
+                _id: 1,
+                name: "Vladimir Harkonnen",
+                content: "Am I the drama?",
+            },
+            2: {
                 _id: 2,
                 name: "Lady Jessica",
                 content: "Is Paul the Kwisatz Haderach?",
             },
-            {
+            3: {
                 _id: 3,
                 name: "Paul Atreides",
                 content: "Why are my dreams so sandy?",
             },
-        ],
+        },
         answers: [],
         ui: {
             isDarkMode: false,
-            isLoading
-        }
+            isLoading: false,
+        },
+        submitQuestion: (question) => {
+            const NEW_STATE = { ...GLOBAL_STATE };
+            NEW_STATE.questions[question._id] = question;
+            setGlobalState(NEW_STATE);
+        },
+        deleteQuestion: (_id) => {
+            const NEW_STATE = { ...GLOBAL_STATE };
+            delete NEW_STATE.questions[_id];
+            setGlobalState(NEW_STATE);
+        },
     });
-
-    // submit handler
-    const submitQuestion = (question) => {
-        setQuestions([...questions, question]);
-    };
-
-    // delete handler
-    const deleteQuestion = (_id) => {
-        setQuestions(questions.filter((question) => question._id !== _id));
-    };
 
     return (
         <div className="App">
             <header>RecApp2.0: Frontend + React</header>
-            <QuestionForm
-                submitQuestion={submitQuestion}
-                //user.name
-                // ui
-            />
+            <QuestionForm GLOBAL_STATE={GLOBAL_STATE} />
             <Questions
-                questions={questions}
-                deleteQuestion={deleteQuestion}
-                //answers
-                // user.name
+                GLOBAL_STATE={GLOBAL_STATE}
+                // deleteQuestion={deleteQuestion}
             />
         </div>
     );

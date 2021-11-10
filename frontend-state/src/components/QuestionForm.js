@@ -7,20 +7,18 @@ const defaultQuestion = {
     content: ''
 };
 
-export const QuestionForm = ({ submitQuestion }) => {
+export const QuestionForm = ({ GLOBAL_STATE }) => {
     const [question, setQuestion] = useState(defaultQuestion);
 
     const handleInput = e => {
         e.preventDefault();
-        console.log('e.target.nmae:', e.target.name)
-        console.log('e.target.value:', e.target.value)
-        setQuestion({...question, [e.target.name]: e.target.value})
+        setQuestion({...question, [e.target.name]: e.target.content})        
     }
-
+    
     const handleSubmit = e => {
         e.preventDefault()
         question._id = Math.floor(Math.random() * 1000)
-        submitQuestion(question)
+        GLOBAL_STATE.submitQuestion(question);
         setQuestion(defaultQuestion)
     }
 
@@ -28,7 +26,7 @@ export const QuestionForm = ({ submitQuestion }) => {
         <form className="module" onSubmit={handleSubmit}>
             <h1>Ask A Question!</h1>
             <input
-                name={submitQuestion.name}
+                name={question.name}
                 type="text"
                 placeholder="Name"
                 value={question.name}

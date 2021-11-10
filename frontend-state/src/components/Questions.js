@@ -1,8 +1,10 @@
 import React from "react";
 import '../index.css';
 
-export const Questions = ({ questions, deleteQuestion}) => {
+export const Questions = ({ GLOBAL_STATE, deleteQuestion}) => {
     
+    const questions = Object.values(GLOBAL_STATE.questions);
+
     const generateQuestionsList = () => {
         if (!questions.length) return <h1>No Questions Yet</h1>
 
@@ -10,7 +12,7 @@ export const Questions = ({ questions, deleteQuestion}) => {
         <div key={i} className="module" >
             <h3>{question.content}</h3>
             <span>- {question.name}</span>
-            <button onClick={() => deleteQuestion(question._id)}>Delete</button>
+            <button onClick={() => GLOBAL_STATE.deleteQuestion(question._id)}>Delete</button>
         </div>).reverse()
     }
 
