@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import { QuestionForm } from "./QuestionForm";
-import { Question, Questions } from "./Questions";
+import { Provider } from "react-redux"; // give store to each component
+import QuestionForm from "./QuestionForm";
+import Questions from "./Questions";
 import "../css_reset.css";
 import "../index.css";
 
-export const App = () => {
-  
+export const App = ({ store }) => {
     return (
-        <div className="App">
-            <header>RecApp2.0: Frontend + React</header>
-            <QuestionForm />
-            <Questions />
-        </div>
+        <Provider store={store}>
+            <div className="App">
+                <header>RecApp2.0: Frontend + React</header>
+                <QuestionForm />
+                <Questions />
+            </div>
+        </Provider>
     );
 };

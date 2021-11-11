@@ -1,5 +1,5 @@
 import {
-    createReducerucer,
+    createReducer,
     configureStore,
     getDefaultMiddleware,
 } from "@reduxjs/toolkit";

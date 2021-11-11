@@ -1,10 +1,11 @@
 import React from "react";
+// gives access to specified slices of state
+import { connect } from 'react-redux'; 
+import { deleteQuestion } from '../actions/question_actions';
 import '../index.css';
 
-export const Questions = ({ GLOBAL_STATE, deleteQuestion}) => {
+export const Questions = ({ questions, deleteQuestion}) => {
     
-    const questions = Object.values(GLOBAL_STATE.questions);
-
     const generateQuestionsList = () => {
         if (!questions.length) return <h1>No Questions Yet</h1>
 
@@ -21,3 +22,17 @@ export const Questions = ({ GLOBAL_STATE, deleteQuestion}) => {
         
     )
 }
+
+// dispatch used in question_actions
+
+const mapDispatchToProps = dispatch => ({
+    deleteQuestion: _id => dispatch(deleteQuestion(_id))
+})
+
+const mapStateToProps = state => ({
+    questions: state.questions ? Object.values(state.questions) : []
+})
+
+// connect returns a function
+// currying
+export default connect(mapStateToProps, mapDispatchToProps)(Questions);

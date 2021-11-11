@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import { submitQuestion } from "../actions/question_actions";
 import "../index.css";
 
 const defaultQuestion = {
@@ -7,7 +9,7 @@ const defaultQuestion = {
     content: ''
 };
 
-export const QuestionForm = ({ GLOBAL_STATE }) => {
+export const QuestionForm = () => {
     const [question, setQuestion] = useState(defaultQuestion);
 
     const handleInput = e => {
@@ -18,7 +20,7 @@ export const QuestionForm = ({ GLOBAL_STATE }) => {
     const handleSubmit = e => {
         e.preventDefault()
         question._id = Math.floor(Math.random() * 1000)
-        GLOBAL_STATE.submitQuestion(question);
+        submitQuestion(question);
         setQuestion(defaultQuestion)
     }
 
@@ -26,7 +28,7 @@ export const QuestionForm = ({ GLOBAL_STATE }) => {
         <form className="module" onSubmit={handleSubmit}>
             <h1>Ask A Question!</h1>
             <input
-                name={question.name}
+                name='name'
                 type="text"
                 placeholder="Name"
                 value={question.name}
@@ -34,6 +36,7 @@ export const QuestionForm = ({ GLOBAL_STATE }) => {
             ></input>
             <textarea
                 rows="3"
+                name='content'
                 type="text"
                 placeholder="Ask Anything..."
                 value={question.content}
@@ -43,3 +46,9 @@ export const QuestionForm = ({ GLOBAL_STATE }) => {
         </form>
     );
 };
+
+const mapDispatchToProps = dispatch => ({
+    submitQuestion: question => dispatch(submitQuestion(question))
+})
+
+export default connect(null, mapDispatchToProps)(QuestionForm)
