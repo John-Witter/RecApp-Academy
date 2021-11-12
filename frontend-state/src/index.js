@@ -8,23 +8,23 @@ import { App } from "./components/App";
 document.addEventListener("DOMContentLoaded", () => {
     
     let preloadedState = {
-        questions: {
-            1: {
-                _id: 1,
-                name: "Vladimir Harkonnen",
-                content: "Am I the drama?",
-            },
-            2: {
-                _id: 2,
-                name: "Lady Jessica",
-                content: "Is Paul the Kwisatz Haderach?",
-            },
-            3: {
-                _id: 3,
-                name: "Paul Atreides",
-                content: "Why are my dreams so sandy?",
-            },
-        },
+        // questions: {
+        //     1: {
+        //         _id: 1,
+        //         name: "Vladimir Harkonnen",
+        //         content: "Am I the drama?",
+        //     },
+        //     2: {
+        //         _id: 2,
+        //         name: "Lady Jessica",
+        //         content: "Is Paul the Kwisatz Haderach?",
+        //     },
+        //     3: {
+        //         _id: 3,
+        //         name: "Paul Atreides",
+        //         content: "Why are my dreams so sandy?",
+        //     },
+        // },
     };
     
     let store = configureAppStore(preloadedState);

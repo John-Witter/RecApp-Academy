@@ -1,6 +1,6 @@
 [placements docs](https://placements-docs.appacademy.io/) code: go_docs_go
 
-```npm run start:dev``` in backend-express
+```npm run start:dev``` to run app in package.json
 
 # Monday
 

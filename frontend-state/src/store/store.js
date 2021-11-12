@@ -14,7 +14,15 @@ const questionReducer = createReducer(inititialState, (builder) => {
     builder
         // code to add to state goes here
         // here, state is a copy of original state / can be modified
-        .addCase("RECEIVE_QUESTIONS", (state, action) => {})
+        .addCase("RECEIVE_QUESTIONS", (state, action) => {
+            // action.payload is an array
+            const questions= {};
+            action.payload.map(question => {
+                questions[question._id] = question
+            })
+            // state.questions = question;
+            state.questions = action.payload;
+        })
 
         .addCase("RECEIVE_QUESTION", (state, action) => {
             const question = action.payload;
