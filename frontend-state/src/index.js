@@ -29,5 +29,5 @@ document.addEventListener("DOMContentLoaded", () => {
     
     let store = configureAppStore(preloadedState);
 
-    ReactDom.render(<App />, document.getElementById("root"));
+    ReactDom.render(<App store={store} />, document.getElementById("root"));
 });

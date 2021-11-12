@@ -18,7 +18,7 @@ export const fetchQuestions = () => async dispatch => {
         console.log(err);
     }
 };
-export const submitQuestion = question = async dispatch => {
+export const submitQuestion = question => async dispatch => {
     try {
         // logic for submitting to the backend
         let res = question;
@@ -28,7 +28,7 @@ export const submitQuestion = question = async dispatch => {
     }
 };
 
-export const deleteQuestion = _id = async dispatch => {
+export const deleteQuestion = _id => async dispatch => {
     try {
         // logic for submitting to the backend
         let res = _id;

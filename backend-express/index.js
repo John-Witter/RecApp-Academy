@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from 'cors';
 import { questions } from "./routes/questions.js";
 import { MONGO_URI } from "./config/keys.js";
 const app = express();
