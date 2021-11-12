@@ -5,6 +5,12 @@ import { questions } from "./routes/questions.js";
 import { MONGO_URI } from "./config/keys.js";
 const app = express();
 
+// allows requests to server from any port / protocol
+// invoking cors w/nothing is same as passing a wildcard
+// typically not a good idea
+// https://www.npmjs.com/package/cors
+app.use(cors()); 
+
 app.use(express.json());
 
 mongoose

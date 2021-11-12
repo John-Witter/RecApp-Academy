@@ -32,7 +32,7 @@ export const deleteQuestion = _id => async dispatch => {
     try {
         // logic for submitting to the backend
         let res = _id;
-        dispatch(removeQuestion(res));
+        dispatch(removeQuestions(res));
     } catch (err) {
         console.log(err);
     }
