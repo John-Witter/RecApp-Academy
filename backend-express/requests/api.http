@@ -1,16 +1,35 @@
+# https://www.npmjs.com/package/request
+
+
 ### Get Questions
 
 GET http://127.0.0.1:5000/api/questions
 Content-Type: application/json
 
-### Submit Question
+### Submit Questions
 
 POST http://127.0.0.1:5000/api/questions
 Content-Type: application/json
 
+# {
+#     "name": "Paul Atreides",
+#     "content": "Why are my dreams so sandy?"
+# }
+
+# POST http://127.0.0.1:5000/api/questions
+# Content-Type: application/json
+
+# {
+#     "name": "Vladimir Harkonnen",
+#     "content": "Am I the drama?"
+# }
+
+# POST http://127.0.0.1:5000/api/questions
+# Content-Type: application/json
+
 {
-    "name": "Paul Atreides",
-    "content": "Why are my dreams so sandy?"
+    "name": "Lady Jessica",
+    "content": "Is Paul the Kwisatz Haderach?"
 }
 
 
