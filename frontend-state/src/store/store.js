@@ -30,7 +30,7 @@ const questionReducer = createReducer(inititialState, (builder) => {
         })
         .addCase("REMOVE_QUESTION", (state, action) => {
             // code to add to state goes here
-            const _id = action.payload;
+            const _id = action.payload._id;
             delete state.questions[_id];
         });
 });
