@@ -3,52 +3,54 @@ import { connect } from "react-redux";
 import { submitQuestion } from "../actions/question_actions";
 import "../index.css";
 
-const defaultQuestion = {
-    _id: null,
-    name: '',
-    content: ''
-};
+export const QuestionForm = ({ submit }) => {
+    const [inputName, setInputName] = useState("");
+    const [inputContent, setInputContent] = useState("");
 
-export const QuestionForm = () => {
-    const [question, setQuestion] = useState(defaultQuestion);
-
-    const handleInput = e => {
+    const handleNameInput = (e) => {
         e.preventDefault();
-        setQuestion({...question, [e.target.name]: e.target.content})        
-    }
-    
-    const handleSubmit = e => {
-        e.preventDefault()
-        question._id = Math.floor(Math.random() * 1000)
-        submitQuestion(question);
-        setQuestion(defaultQuestion)
-    }
+        setInputName(e.target.value);
+    };
+
+    const handleContentInput = (e) => {
+        e.preventDefault();
+        setInputContent(e.target.value);
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const question = {};
+        question._id = Math.floor(Math.random() * 1000);
+        question.name = inputName;
+        question.content = inputContent;
+        submit(question);
+        setInputContent("");
+        setInputName("");
+    };
 
     return (
         <form className="module" onSubmit={handleSubmit}>
             <h1>Ask A Question!</h1>
             <input
-                name='name'
                 type="text"
                 placeholder="Name"
-                value={question.name}
-                onChange={handleInput}
+                value={inputName}
+                onChange={handleNameInput}
             ></input>
             <textarea
                 rows="3"
-                name='content'
                 type="text"
                 placeholder="Ask Anything..."
-                value={question.content}
-                onChange={handleInput}
+                value={inputContent}
+                onChange={handleContentInput}
             ></textarea>
             <button type="submit">Submit</button>
         </form>
     );
 };
 
-const mapDispatchToProps = dispatch => ({
-    submitQuestion: question => dispatch(submitQuestion(question))
-})
+const mapDispatchToProps = (dispatch) => ({
+    submit: (question) => dispatch(submitQuestion(question)),
+});
 
-export default connect(null, mapDispatchToProps)(QuestionForm)
+export default connect(null, mapDispatchToProps)(QuestionForm);

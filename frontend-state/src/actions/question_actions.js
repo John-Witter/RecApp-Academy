@@ -20,6 +20,7 @@ export const fetchQuestions = () => async (dispatch) => {
     }
 };
 export const submitQuestion = (question) => async (dispatch) => {
+    console.log('IN submitQuestion question:', question)
     try {
         // logic for submitting to the backend
 
